@@ -1,0 +1,228 @@
+/**
+ * Palettes
+ * ----------------------------------------------------------------------------
+ */
+.palette-blue {
+  a {
+    border-color: _palette(accent-blue);
+
+    &:hover {
+      border-color: currentColor;
+    }
+  }
+
+  blockquote {
+    &:before {
+      color: _palette(accent-blue);
+    }
+  }
+
+  button,
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"],
+  .button {
+    background: _palette(accent-blue);
+    border-color: _palette(accent-blue);
+    color: #fff;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: 0;
+      border-color: _palette(accent-blue);
+      color: _palette(accent-blue);
+    }
+  }
+
+  .button.inverse {
+    background: 0;
+    color: _palette(accent-blue);
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: _palette(accent-blue);
+      border-color: _palette(accent-blue);
+      color: #fff;
+    }
+  }
+
+  .site-header {
+    border-top-color: _palette(accent-blue);
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .palette-blue {
+    .site-navigation {
+      border-top-color: _palette(accent-blue);
+    }
+  }
+}
+
+@media only screen and (min-width: 681px) {
+  .palette-blue {
+    &.layout-grid {
+      .post-card-content:only-child {
+        border-color: rgba(_palette(accent-blue),0.1);
+      }
+    }
+
+    &.layout-list {
+      .post-card-content:only-child {
+        border-color: rgba(_palette(accent-blue),0.1);
+      }
+    }
+  }
+}
+
+.palette-black {
+  a {
+    border-color: _palette(accent-black);
+
+    &:hover {
+      border-color: _palette(meta);
+    }
+  }
+
+  blockquote {
+    &:before {
+      color: _palette(accent-black);
+    }
+  }
+
+  button,
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"],
+  .button {
+    background: _palette(accent-black);
+    border-color: _palette(accent-black);
+    color: #fff;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: 0;
+      border-color: _palette(accent-black);
+      color: _palette(accent-black);
+    }
+  }
+
+  .button.inverse {
+    background: 0;
+    color: _palette(accent-black);
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: _palette(accent-black);
+      border-color: _palette(accent-black);
+      color: #fff;
+    }
+  }
+
+  .site-header {
+    border-top-color: _palette(accent-black);
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .palette-black {
+    .site-navigation {
+      border-top-color: _palette(accent-black);
+    }
+  }
+}
+
+@media only screen and (min-width: 681px) {
+  .palette-black {
+    &.layout-grid {
+      .post-card-content:only-child {
+        border-color: rgba(_palette(accent-black),0.1);
+      }
+    }
+
+    &.layout-list {
+      .post-card-content:only-child {
+        border-color: rgba(_palette(accent-black),0.1);
+      }
+    }
+  }
+}
+
+.palette-red {
+  a {
+    border-color: _palette(accent-red);
+
+    &:hover {
+      border-color: currentColor;
+    }
+  }
+
+  blockquote {
+    &:before {
+      color: _palette(accent-red);
+    }
+  }
+
+  button,
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"],
+  .button {
+    background: _palette(accent-red);
+    border-color: _palette(accent-red);
+    color: #fff;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: 0;
+      border-color: _palette(accent-red);
+      color: _palette(accent-red);
+    }
+  }
+
+  .button.inverse {
+    background: 0;
+    color: _palette(accent-red);
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: _palette(accent-red);
+      border-color: _palette(accent-red);
+      color: #fff;
+    }
+  }
+
+  .site-header {
+    border-top-color: _palette(accent-red);
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .palette-red {
+    .site-navigation {
+      border-top-color: _palette(accent-red);
+    }
+  }
+}
+
+@media only screen and (min-width: 681px) {
+  .palette-red {
+    &.layout-grid {
+      .post-card-content:only-child {
+        border-color: rgba(_palette(accent-red),0.1);
+      }
+    }
+
+    &.layout-list {
+      .post-card-content:only-child {
+        border-color: rgba(_palette(accent-red),0.1);
+      }
+    }
+  }
+}

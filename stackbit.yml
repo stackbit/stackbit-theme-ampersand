@@ -1,0 +1,317 @@
+stackbitVersion: ~0.2.34
+uploadDir: images
+metadata:
+  title: Ampersand
+  description: Medium inspired blogging theme
+  author: Stackbit
+  authorURL: 'https://www.stackbit.com'
+  images:
+    small: images/demo-256x192.png
+    large: images/demo-1024x768.png
+sourceMapping:
+  - source:
+      fieldPath: author.name
+    target:
+      file: data/author.json
+      fieldPath: name
+  - source:
+      fieldPath: author.name
+    target:
+      file: config.yml
+      fieldPath: params.header.title
+  - source:
+      fieldPath: author.email
+    target:
+      file: data/author.json
+      fieldPath: email
+  - source:
+      fieldPath: author.avatar
+    target:
+      file: data/author.json
+      fieldPath: avatar
+  - source:
+      fieldPath: 'social.links[0].url'
+    target:
+      file: data/social.json
+      fieldPath: 'links[0].url'
+models:
+  config:
+    type: config
+    label: Global Site Config
+    fields:
+      - type: enum
+        name: layout_style
+        label: Layout Style
+        description: The style of the theme layout
+        options:
+          - grid
+          - list
+        default: grid
+      - type: enum
+        name: palette
+        label: Color Palette
+        description: The color palette of the theme.
+        options:
+          - green
+          - blue
+          - black
+          - red
+        default: green
+      - type: object
+        name: header
+        label: Header Configuration
+        fields:
+          - type: string
+            name: title
+            label: Header Title
+            description: The title displayed in the header if no logo image added.
+          - type: image
+            name: logo_img
+            label: Logo
+            description: The logo image displayed in the header.
+          - type: boolean
+            name: has_nav
+            label: Enable Navigation Menu
+            description: Display the navigation menu bar in the header.
+            default: true
+      - type: object
+        name: footer
+        label: Footer Configuration
+        fields:
+          - type: string
+            name: content
+            label: Footer Content
+            description: The copyright text displayed in the footer.
+          - type: list
+            name: links
+            label: Links
+            description: A list of links displayed in the footer.
+            items:
+              type: object
+              labelField: text
+              fields:
+                - type: string
+                  name: text
+                  label: Link text
+                - type: string
+                  name: url
+                  label: URL
+                  widget: url
+                - type: boolean
+                  name: new_window
+                  label: Open in new window
+                  default: true
+          - type: boolean
+            name: has_social
+            label: Enable Social Links
+            description: Display social links in the footer.
+            default: true
+  social:
+    type: data
+    file: social.json
+    label: Social Links
+    fields:
+      - type: list
+        name: links
+        label: Social Links
+        description: A list of social links displayed in the footer.
+        items:
+          type: object
+          labelField: title
+          fields:
+            - type: string
+              name: type
+              label: Type
+              hidden: true
+            - type: string
+              name: title
+              label: Title
+            - type: string
+              name: icon
+              label: Icon
+              description: Font Awesome icon class name.
+              required: true
+            - type: string
+              name: url
+              label: URL
+              widget: url
+  author:
+    type: data
+    file: author.json
+    label: Author
+    fields:
+      - type: string
+        name: name
+        label: Name
+      - type: string
+        name: email
+        label: Email
+      - type: image
+        name: avatar
+        label: Avatar
+  home:
+    type: page
+    label: Home
+    template: home
+    file: index.md
+    hideContent: true
+    singleInstance: true
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: >-
+          The title of the page. If value is not set, the author name will be
+          used.
+        required: true
+      - type: list
+        name: sections
+        label: Sections
+        description: Home page sections
+        items:
+          type: reference
+          labelField: title
+          models:
+            - intro
+  contact:
+    type: page
+    label: Contact
+    template: contact
+    file: contact.md
+    singleInstance: true
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the page.
+        required: true
+      - type: string
+        name: subtitle
+        label: Subtitle
+        description: The text shown just below the page title.
+      - type: image
+        name: img_path
+        label: Image
+        description: The image shown below the page title and subtitle.
+  page:
+    type: page
+    label: Page
+    template: page
+    exclude: posts/**
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the page.
+        required: true
+      - type: string
+        name: subtitle
+        label: Subtitle
+        description: The text shown just below the page title.
+      - type: image
+        name: img_path
+        label: Image
+        description: The image shown below the page title and subtitle.
+  post:
+    type: page
+    label: Post
+    template: post
+    folder: posts
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the post.
+        required: true
+      - type: string
+        name: subtitle
+        label: Subtitle
+        description: The text shown just below the post title.
+      - type: date
+        name: date
+        label: Date
+        required: true
+      - type: image
+        name: thumb_img_path
+        label: Featured Image
+        description: The image shown in the blog feed.
+      - type: image
+        name: content_img_path
+        label: Alternative Featured Image
+        description: The image shown in the single post.
+      - type: string
+        name: excerpt
+        label: Excerpt
+        description: The excerpt of the post displayed in the blog feed.
+  subscribe:
+    type: data
+    file: subscribe.json
+    label: Subscribe
+    fields:
+      - type: boolean
+        name: enabled
+        label: Enable Subscribe Section
+        description: Display the newsletter subscription section in the footer.
+        default: true
+      - type: string
+        name: title
+        label: Title
+        description: The title of the subscribe section
+      - type: string
+        name: content
+        label: Content
+        description: The text content of the subscribe section
+  section:
+    type: object
+    label: Section
+    labelField: title
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the section
+        required: true
+      - type: string
+        name: section_id
+        label: Element ID
+      - type: string
+        name: component
+        label: Component
+        required: true
+        hidden: true
+  action:
+    type: object
+    label: Action
+    labelField: label
+    fields:
+      - type: string
+        name: label
+        label: Label
+        required: true
+        description: The text displayed inside the button
+      - type: string
+        name: url
+        label: Button URL
+        widget: url
+  intro:
+    type: object
+    label: Intro Section
+    extends:
+      - section
+    fields:
+      - name: component
+        default: intro.html
+      - type: markdown
+        name: content
+        label: Content
+        description: The text content of the section.
+      - type: list
+        name: actions
+        label: Action Buttons
+        items:
+          type: action
+stackbit_banner:
+  show_banner: true
+  name: Ampersand
+  create_url: 'https://app.stackbit.com/wizard?theme=ampersand'
+  github_url: 'https://github.com/stackbithq/stackbit-theme-ampersand'

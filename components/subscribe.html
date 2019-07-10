@@ -1,0 +1,9 @@
+<section class="subscribe">
+  <div class="inner">
+    <h2 class="subscribe-title">{{ site.data.subscribe.title }}</h2>
+    <p class="subscribe-text">
+      {{ site.data.subscribe.content | safe }}
+    </p>
+    {% include "subscribe_form.html" %}
+  </div><!-- inner -->
+</section><!-- .subscribe -->

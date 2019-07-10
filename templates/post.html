@@ -1,0 +1,79 @@
+{% extends "body.html" %}
+
+{% block content %}
+
+  <article class="post post-full">
+    <header class="post-header">
+      <div class="post-meta">
+        <time class="published"
+          datetime="{{page.date | date_format("%Y-%m-%d %H:%M") }}">{{page.date | date_format("%A, %B %e, %Y") }}</time>
+      </div>
+      <h1 class="post-title">{{ page.params.title }}</h1>
+    </header><!-- .post-header -->
+    {% if page.params.subtitle %}
+    <div class="post-subtitle">
+      {{ page.params.subtitle | safe }}
+    </div><!-- .post-subtitle -->
+    {% endif %}
+    {% if page.params.content_img_path %}
+    <div class="post-thumbnail">
+      <img class="thumbnail" src="{{ page.params.content_img_path | relative_url }}" alt="{{ page.params.title }}" />
+    </div>
+    {% endif %}
+    <div class="post-content">
+      {{ page.content }}
+    </div><!-- .post-content -->
+  </article><!-- .post -->
+
+  <!-- Next/previous post navigation TBD -->
+  <!--
+  <nav class="post-navigation">
+    <h2 class="post-nav-title">Read Next</h2>
+    <div class="post-feed">
+      <article class="post post-card">
+        <div class="post-card-inside">
+          <a class="post-card-thumbnail" href="#">
+            <img class="thumbnail" src="#" alt="" />
+          </a>
+          <div class="post-card-content">
+            <header class="post-header">
+              <div class="post-meta">
+                <time class="published" datetime="">Previous post date</time>
+              </div>
+              <h3 class="post-title"><a href="#" rel="bookmark">Previous Post Title</a></h3>
+            </header>
+            <div class="post-excerpt">
+              <p>Previous post excerpt</p>
+              <p class="read-more">
+                <a class="button inverse" href="#">Read more</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="post post-card">
+        <div class="post-card-inside">
+          <a class="post-card-thumbnail" href="#">
+            <img class="thumbnail" src="#" alt="" />
+          </a>
+          <div class="post-card-content">
+            <header class="post-header">
+              <div class="post-meta">
+                <time class="published" datetime="">Next post date</time>
+              </div>
+              <h3 class="post-title"><a href="#" rel="bookmark">Next Post Title</a></h3>
+            </header>
+            <div class="post-excerpt">
+              <p>Next post excerpt</p>
+              <p class="read-more">
+                <a class="button inverse" href="#">Read more</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </nav>
+  -->
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "body.html" %}
+
+{% block content %}
+
+  {% for section in page.params.sections %}
+    {% set include_dict = {'section': section, 'site': site} %}
+    {% include section.component %}
+  {% endfor %}
+
+  <div class="post-feed">
+    {% set display_posts = getPages("/posts") | sort(true, true, "date") %}
+    {% for post in display_posts %}
+    <article class="post post-card">
+      <div class="post-card-inside">
+        {% if post.params.thumb_img_path %}
+        <a class="post-card-thumbnail" href="{{ post.url | relative_url }}">
+          <img class="thumbnail" src="{{ post.params.thumb_img_path | relative_url }}" alt="{{ post.params.title }}" />
+        </a>
+        {% endif %}
+        <div class="post-card-content">
+          <header class="post-header">
+            <div class="post-meta">
+              <time class="published"
+              datetime="{{post.date | date_format("%Y-%m-%d %H:%M") }}">{{ post.date | date_format("%B %d, %Y") }}</time>
+            </div>
+            <h2 class="post-title"><a href="{{ post.url | relative_url }}" rel="bookmark">{{ post.params.title }}</a></h2>
+          </header><!-- .post-header -->
+          <div class="post-excerpt">
+            <p>{{ post.params.excerpt }}</p>
+            <p class="read-more">
+              <a class="button inverse" href="{{ post.url | relative_url }}">Read more</a>
+            </p>
+          </div><!-- .post-excerpt -->
+        </div><!-- .post-card-content -->
+      </div><!-- .post-card-inside -->
+    </article><!-- .post -->
+    {% endfor %}
+  </div><!-- .post-feed -->
+
+  <!-- Pagination TBD -->
+  <!--
+  <nav class="pagination">
+    <div class="nav-links">
+      <a class="older-posts button circle" href="#"><span class="icon-arrow-left" aria-hidden="true"></span><span class="screen-reader-text">Older posts</span></a>
+      <span class="page-number">Page X of Y</span>
+      <a class="newer-posts button circle" href="#"><span class="screen-reader-text">Newer posts</span><span class="icon-arrow-right" aria-hidden="true"></span></a>
+    </div>
+  </nav>
+  -->
+
+{% endblock %}

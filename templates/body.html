@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+  <div id="page" class="site layout-{{ site.params.layout_style }} palette-{{ site.params.palette }}">
+
+    {% include "header.html" %}
+
+    <div id="content" class="site-content">
+      <main id="main" class="site-main inner">
+
+        {% block content %}{% endblock %}
+
+      </main><!-- .site-main -->
+    </div><!-- .site-content -->
+
+    {% if site.data.subscribe.enabled %}
+      {% include "subscribe.html" %}
+    {% endif %}
+
+    {% include "footer.html" %}
+
+  </div><!-- .site -->
+
+{% endblock %}

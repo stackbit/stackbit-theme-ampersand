@@ -1,0 +1,26 @@
+{
+  "name": "ampersand",
+  "version": "1.0.0",
+  "description": "A Medium inspired blogging theme for Stackbit",
+  "main": "public/index.html",
+  "scripts": {
+    "build": "unibit build",
+    "develop": "unibit develop",
+    "start": "unibit develop",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stackbithq/stackbit-theme-ampersand"
+  },
+  "author": "Stackbit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stackbithq/stackbit-theme-ampersand/issues"
+  },
+  "homepage": "https://docs.stackbit.com/unibit/",
+  "dependencies": {
+    "@stackbit/unibit": "~0.1.11",
+    "nodemon": "^1.19.1"
+  }
+}
