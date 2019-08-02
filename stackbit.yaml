@@ -313,5 +313,7 @@ models:
 stackbit_banner:
   show_banner: true
   name: Ampersand
-  create_url: 'https://app.stackbit.com/wizard?theme=ampersand'
+  launch_url: 'https://app.stackbit.com/create?theme=ampersand'
   github_url: 'https://github.com/stackbithq/stackbit-theme-ampersand'
+pagesDir: content
+staticDir: static
