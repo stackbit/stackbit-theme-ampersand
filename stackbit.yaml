@@ -1,5 +1,12 @@
-stackbitVersion: ~0.2.34
+stackbitVersion: ~0.2.0
+ssgName: unibit
+buildCommand: unibit build
+publishDir: output
+staticDir: static
 uploadDir: images
+dataDir: data
+pagesDir: content
+pageLayoutKey: layout
 metadata:
   title: Ampersand
   description: Medium inspired blogging theme
@@ -315,5 +322,3 @@ stackbit_banner:
   name: Ampersand
   create_url: 'https://app.stackbit.com/create?theme=ampersand'
   github_url: 'https://github.com/stackbithq/stackbit-theme-ampersand'
-pagesDir: content
-staticDir: static
