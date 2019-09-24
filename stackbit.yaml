@@ -46,6 +46,11 @@ sourceMapping:
     target:
       file: content/index.md
       fieldPath: 'sections[0].content'
+  - action: delete
+    condition: 'author.about'
+    target:
+      file: content/index.md
+      fieldPath: 'sections[0].actions'
 models:
   config:
     type: config
