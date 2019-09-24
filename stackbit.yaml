@@ -41,6 +41,11 @@ sourceMapping:
     target:
       file: data/social.json
       fieldPath: 'links[0].url'
+  - source:
+      fieldPath: 'author.about'
+    target:
+      file: content/index.md
+      fieldPath: 'sections[0].content'
 models:
   config:
     type: config
