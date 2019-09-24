@@ -7,7 +7,7 @@ params:
     logo_img: images/logo.png
     has_nav: true
   footer:
-    content: "&copy; Stackbit-Ampersand. All rights reserved."
+    content: "&copy; All rights reserved."
     links:
       - text: Made with Stackbit
         url: https://www.stackbit.com
