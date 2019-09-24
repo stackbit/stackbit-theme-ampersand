@@ -42,12 +42,12 @@ sourceMapping:
       file: data/social.json
       fieldPath: 'links[0].url'
   - source:
-      fieldPath: 'author.about'
+      fieldPath: 'author.tagline'
     target:
       file: content/index.md
       fieldPath: 'sections[0].content'
   - action: delete
-    condition: 'context.author.about'
+    condition: 'context.author.tagline'
     target:
       file: content/index.md
       fieldPath: 'sections[0].actions'
