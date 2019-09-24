@@ -51,6 +51,11 @@ sourceMapping:
     target:
       file: content/index.md
       fieldPath: 'sections[0].actions'
+  - action: delete
+    condition: 'author.name'
+    target:
+      file: config.yml
+      fieldPath: params.header.logo_img
 models:
   config:
     type: config
