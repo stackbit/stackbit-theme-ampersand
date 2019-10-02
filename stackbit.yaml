@@ -76,26 +76,52 @@ sourceMapping:
     target:
       file: data/social.json
       fieldPath: links[3].url
+  - source:
+      fieldPath: 'social.devto.url'
+    target:
+      file: data/social.json
+      fieldPath: links[4].url
   - action: delete
-    condition: '!context.social.links && !context.social.linkedin && (context.social.twitter || context.social.github || context.social.instagram)'
+    condition: 'context.social && !context.social.devto'
+    target:
+      file: data/social.json
+      fieldPath: links[4]
+  - action: delete
+    condition: 'context.social && !context.social.linkedin'
     target:
       file: data/social.json
       fieldPath: links[3]
   - action: delete
-    condition: '!context.social.links && !context.social.github && (context.social.twitter || context.social.linkedin || context.social.instagram)'
+    condition: 'context.social && !context.social.github'
     target:
       file: data/social.json
       fieldPath: links[2]
   - action: delete
-    condition: '!context.social.links && !context.social.instagram && (context.social.twitter || context.social.github || context.social.linkedin)'
+    condition: 'context.social && !context.social.instagram'
     target:
       file: data/social.json
       fieldPath: links[1]
   - action: delete
-    condition: '!context.social.links && !context.social.twitter && (context.social.instagram || context.social.github || context.social.linkedin)'
+    condition: 'context.social && !context.social.twitter'
     target:
       file: data/social.json
       fieldPath: links[0]
+  - source:
+      fieldPath: 'source.title'
+    target:
+      file: config.yml
+      fieldPath: params.footer.links[1].text
+  - source:
+      fieldPath: 'source.url'
+    target:
+      file: config.yml
+      fieldPath: params.footer.links[1].url
+  - source:
+      value: true
+    condition: 'context.source.url'
+    target:
+      file: config.yml
+      fieldPath: params.footer.links[1].new_window
 models:
   config:
     type: config
