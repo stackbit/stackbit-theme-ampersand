@@ -1,21 +1,20 @@
-
 // Font.
 $font: (
-  primary: ("PT Sans", sans-serif),
+  primary: ("Roboto", sans-serif),
   secondary: ("PT Serif", serif)
 );
 
 // Palette.
 $palette: (
-  primary:       #5e5e5e,
-  secondary:     darken(#5e5e5e, 25%),
-  meta:          lighten(#5e5e5e, 25%),
-  border:        lighten(#5e5e5e, 50%),
-  bg:            lighten(#5e5e5e, 60%),
+  primary:       #536171,
+  secondary:     darken(#536171, 15%),
+  meta:          lighten(#536171, 25%),
+  border:        lighten(#536171, 52%),
+  bg:            lighten(#536171, 58%),
   accent:        #3cb464,
   accent-blue:   #108afb,
-  accent-black:  #323232,
-  accent-red:    #a51c30
+  accent-black:  #333b45,
+  accent-red:    #f8646c
 );
 
 @import "imports/functions";
@@ -28,7 +27,9 @@ $palette: (
 @import "imports/icons";
 @import "imports/structure";
 @import "imports/header";
-@import "imports/content";
+@import "imports/posts-pages";
+//@import "imports/post-navigation";
+@import "imports/intro";
 @import "imports/subscribe";
 @import "imports/footer";
 @import "imports/palettes";

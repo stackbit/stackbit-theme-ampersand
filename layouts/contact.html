@@ -1,0 +1,54 @@
+{% extends "body.html" %}
+
+{% block content %}
+
+<article class="post page post-full">
+  <header class="post-header inner-md">
+    <h1 class="post-title">{{ page.params.title }}</h1>
+    {% if page.params.subtitle %}
+    <div class="post-subtitle">
+      {{ page.params.subtitle | safe }}
+    </div><!-- .post-subtitle -->
+    {% endif %}
+  </header><!-- .post-header -->
+  {% if page.params.image %}
+  <div class="post-thumbnail">
+    <img class="thumbnail" src="{{ page.params.image | relative_url }}" alt="{{ page.params.title }}" />
+  </div>
+  {% endif %}
+  <div class="post-content inner-md">
+
+    {{ page.content }}
+
+    <form name="contactForm" method="POST" netlify-honeypot="bot-field" data-netlify="true" class="contact-form">
+      <p class="screen-reader-text">
+        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+      </p>
+      <p class="form-row">
+        <label>
+          Name
+          <input type="text" name="name" placeholder="Your name" required />
+        </label>
+      </p>
+      <p class="form-row">
+        <label>
+          Email
+          <input type="email" name="email" placeholder="Your email address" required />
+        </label>
+      </p>
+      <p class="form-row">
+        <label>
+          Message
+          <textarea name="message" placeholder="Your message" rows="7"></textarea>
+        </label>
+      </p>
+      <input type="hidden" name="form-name" value="contactForm" />
+      <p class="form-submit">
+        <button type="submit" class="button">Send Message</button>
+      </p>
+    </form><!-- .contact-form -->
+
+  </div><!-- .post-content -->
+</article><!-- .post -->
+
+{% endblock %}

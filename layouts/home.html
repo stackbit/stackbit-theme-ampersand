@@ -1,0 +1,67 @@
+{% extends "body.html" %}
+
+{% block content %}
+
+  {% if page.params.has_intro %}
+  <div class="intro">
+    <div class="inner-md">
+      {% if page.params.intro_content %}
+      <div class="intro-text">
+        {{ page.params.intro_content | markdownify }}
+      </div>
+      {% endif %}
+      {% if page.params.intro_actions %}
+      <div class="intro-cta">
+        {% for action in page.params.intro_actions %}
+        <a href="{{ action.url | relative_url }}" {{ classNames({'button': action.type != 'link', 'button-secondary': action.type == 'secondary' }) }} {% if action.new_window %}target="_blank" rel="noopener"{% endif %}>{{ action.label }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </div><!-- .intro -->
+  {% endif %}
+
+  <div class="post-feed">
+    {% set display_posts = getPages("/posts") | sort(true, true, "date") %}
+    {% for post in display_posts %}
+    <article class="post post-card">
+      <div class="post-card-inside">
+        {% if post.params.thumb_image %}
+        <a class="post-card-thumbnail" href="{{ post.url | relative_url }}">
+          <img class="thumbnail" src="{{ post.params.thumb_image | relative_url }}" alt="{{ post.params.title }}" />
+        </a>
+        {% endif %}
+        <div class="post-card-content">
+          <header class="post-header">
+            <div class="post-meta">
+              <time class="published"
+              datetime="{{post.date | date_format("%Y-%m-%d %H:%M") }}">{{ post.date | date_format("%B %d, %Y") }}</time>
+            </div>
+            <h2 class="post-title"><a href="{{ post.url | relative_url }}" rel="bookmark">{{ post.params.title }}</a></h2>
+          </header><!-- .post-header -->
+          <div class="post-excerpt">
+            {% if post.params.excerpt %}
+            <p>{{ post.params.excerpt }}</p>
+            {% endif %}
+            <p class="read-more">
+              <a class="button button-secondary" href="{{ post.url | relative_url }}">Read more</a>
+            </p>
+          </div><!-- .post-excerpt -->
+        </div><!-- .post-card-content -->
+      </div><!-- .post-card-inside -->
+    </article><!-- .post -->
+    {% endfor %}
+  </div><!-- .post-feed -->
+
+  <!-- Pagination TBD -->
+  <!--
+  <nav class="pagination">
+    <div class="nav-links">
+      <a class="older-posts button" href="#"><span class="icon-arrow-left" aria-hidden="true"></span><span class="screen-reader-text">Older posts</span></a>
+      <span class="page-number">Page X of Y</span>
+      <a class="newer-posts button" href="#"><span class="screen-reader-text">Newer posts</span><span class="icon-arrow-right" aria-hidden="true"></span></a>
+    </div>
+  </nav>
+  -->
+
+{% endblock %}

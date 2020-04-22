@@ -3,24 +3,24 @@
 {% block content %}
 
   <article class="post post-full">
-    <header class="post-header">
+    <header class="post-header inner-md">
       <div class="post-meta">
         <time class="published"
           datetime="{{page.date | date_format("%Y-%m-%d %H:%M") }}">{{page.date | date_format("%A, %B %e, %Y") }}</time>
       </div>
       <h1 class="post-title">{{ page.params.title }}</h1>
+      {% if page.params.subtitle %}
+      <div class="post-subtitle">
+        {{ page.params.subtitle | safe }}
+      </div><!-- .post-subtitle -->
+      {% endif %}
     </header><!-- .post-header -->
-    {% if page.params.subtitle %}
-    <div class="post-subtitle">
-      {{ page.params.subtitle | safe }}
-    </div><!-- .post-subtitle -->
-    {% endif %}
-    {% if page.params.content_img_path %}
+    {% if page.params.image %}
     <div class="post-thumbnail">
-      <img class="thumbnail" src="{{ page.params.content_img_path | relative_url }}" alt="{{ page.params.title }}" />
+      <img class="thumbnail" src="{{ page.params.image | relative_url }}" alt="{{ page.params.title }}" />
     </div>
     {% endif %}
-    <div class="post-content">
+    <div class="post-content inner-md">
       {{ page.content | safe }}
     </div><!-- .post-content -->
   </article><!-- .post -->
@@ -45,7 +45,7 @@
             <div class="post-excerpt">
               <p>Previous post excerpt</p>
               <p class="read-more">
-                <a class="button inverse" href="#">Read more</a>
+                <a class="button button-secondary" href="#">Read more</a>
               </p>
             </div>
           </div>
@@ -66,7 +66,7 @@
             <div class="post-excerpt">
               <p>Next post excerpt</p>
               <p class="read-more">
-                <a class="button inverse" href="#">Read more</a>
+                <a class="button button-secondary" href="#">Read more</a>
               </p>
             </div>
           </div>

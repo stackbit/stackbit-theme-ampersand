@@ -1,0 +1,45 @@
+/**
+ * Post Navigation
+ */
+.pagination {
+  margin: 0 0 3.33333em;
+
+  .nav-links {
+    padding: 0 60px;
+    position: relative;
+    text-align: center;
+  }
+
+  .page-number {
+    color: _palette(meta);
+    display: inline-block;
+    font-size: 14px;
+    letter-spacing: 0.07em;
+    line-height: 1.5;
+    padding: 0.67857em 0;
+    text-transform: uppercase;
+  }
+
+  .newer-posts,
+  .older-posts {
+    height: 40px;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    width: 45px;
+  }
+
+  .older-posts {
+    left: 0;
+  }
+
+  .newer-posts {
+    right: 0;
+  }
+}
+
+/* Post navigation */
+.post-nav-title {
+  font-size: 1.33333rem;
+  margin-bottom: 1.66667rem;
+}

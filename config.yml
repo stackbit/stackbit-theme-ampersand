@@ -2,19 +2,37 @@ baseurl: "/"
 title: "Stackbit Ampersand Theme"
 page_load_js: "assets/js/main.js"
 params:
+  description: Medium inspired blogging theme for Stackbit
+  layout_style: grid
+  palette: green
   header:
-    title: "Ampersand"
+    title: Ampersand
     logo_img: images/logo.png
     has_nav: true
+    nav_links:
+      - label: Home
+        url: /
+        type: link
+      - label: About
+        url: /about
+        type: link
+      - label: Style Guide
+        url: /style-guide
+        type: link
+      - label: Contact
+        url: /contact
+        type: link
   footer:
     content: "&copy; All rights reserved."
     links:
-      - text: Made with Stackbit
+      - label: Made with Stackbit.
         url: https://www.stackbit.com
+        type: link
         new_window: true
     has_social: true
-  layout_style: grid
-  palette: green
+    has_subscribe: true
+    subscribe_title: Subscribe for new updates
+    subscribe_content: Subscribe to my email newsletter to receive useful articles and special offers. This monthly email is sent out on the first of every month.
 sass:
   input_file: sass/main.scss.njk
   output_file: assets/css/main.css

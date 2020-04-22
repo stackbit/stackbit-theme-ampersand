@@ -1,12 +1,8 @@
 ---
 title: Style Guide
 subtitle: The style guide provides you with a blueprint of default post and page styles. The style guide is also a great reference for suggested typographic treatment and styles for your content.
-img_path: images/6.jpg
-menus:
-  main:
-    title: Style Guide
-    weight: 3
-template: page
+image: images/6.jpg
+layout: page
 ---
 
 **This is a paragraph**. Paragraphs are usually represented in visual media as blocks of text separated from adjacent blocks by blank lines and/or first-line [indentation](https://en.wikipedia.org/wiki/Indentation_(typesetting)), but <abbr title="HyperText Markup Language">HTML</abbr> paragraphs can be any structural grouping of related content, such as images or form fields.
@@ -31,7 +27,7 @@ Avoid using heading tags to resize text. Instead, use the CSS font-size property
 
 The HTML blockquote element defines a long block quotation in the HTML document from another source.
 
->“Creativity is allowing yourself to make mistakes. Design is knowing which ones to keep.” <cite>― Scott Adams</cite>
+>Creativity is allowing yourself to make mistakes. Design is knowing which ones to keep. <cite>― Scott Adams</cite>
 
 A URL for the source of the quotation may be given using the cite attribute, while a text representation of the source can be given using the &lt;cite&gt; element.
 
@@ -59,26 +55,38 @@ Represents a list of items. The only difference from the unordered list is taht 
 
 ## Code Blocks
 
-<pre>/* Some example CSS code */
+```
+/* Some example CSS code */
 body {
-  color:red;
+  color: #333;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
 }
-</pre>
+```
 
 ## Tables
 
-<table>
-  <caption>Simple table with caption and header</caption>
-  <tr>
-    <th>First name</th>
-    <th>Last name</th>
-  </tr>
-  <tr>
-    <td>John</td>
-    <td>Doe</td>
-  </tr>
-  <tr>
-    <td>Jane</td>
-    <td>Doe</td>
-  </tr>
-</table>
+<div class="responsive-table">
+  <table>
+    <caption>Simple table with caption and header</caption>
+    <thead>
+      <tr>
+        <th>Column 1</th>
+        <th>Column 2</th>
+        <th>Column 3</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Row 1, Cell 1</td>
+        <td>Row 1, Cell 2</td>
+        <td>Row 1, Cell 3</td>
+      </tr>
+      <tr>
+        <td>Row 2, Cell 1</td>
+        <td>Row 2, Cell 2</td>
+        <td>Row 2, Cell 3</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

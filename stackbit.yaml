@@ -110,7 +110,7 @@ sourceMapping:
       fieldPath: 'source.title'
     target:
       file: config.yml
-      fieldPath: params.footer.links[1].text
+      fieldPath: params.footer.links[1].label
   - source:
       fieldPath: 'source.url'
     target:
@@ -125,8 +125,12 @@ sourceMapping:
 models:
   config:
     type: config
-    label: Global Site Config
+    label: Site Configuration
     fields:
+      - type: string
+        name: description
+        label: Site Description
+        description: The default site description used in meta data.
       - type: enum
         name: layout_style
         label: Layout Style
@@ -138,11 +142,11 @@ models:
       - type: enum
         name: palette
         label: Color Palette
-        description: The color palette of the theme.
+        description: The color palette used for the site.
         options:
-          - green
-          - blue
           - black
+          - blue
+          - green
           - red
         default: green
       - type: object
@@ -162,6 +166,12 @@ models:
             label: Enable Navigation Menu
             description: Display the navigation menu bar in the header.
             default: true
+          - type: list
+            name: nav_links
+            label: Navigation Links
+            description: List of navigation links.
+            items:
+              type: action
       - type: object
         name: footer
         label: Footer Configuration
@@ -173,27 +183,27 @@ models:
           - type: list
             name: links
             label: Links
-            description: A list of links displayed in the footer.
+            description: List of links in the footer.
             items:
-              type: object
-              labelField: text
-              fields:
-                - type: string
-                  name: text
-                  label: Link text
-                - type: string
-                  name: url
-                  label: URL
-                  widget: url
-                - type: boolean
-                  name: new_window
-                  label: Open in new window
-                  default: true
+              type: action
           - type: boolean
             name: has_social
             label: Enable Social Links
             description: Display social links in the footer.
             default: true
+          - type: boolean
+            name: has_subscribe
+            label: Enable Subscribe Section
+            description: Display the newsletter subscription section in the footer.
+            default: true
+          - type: string
+            name: subscribe_title
+            label: Title
+            description: The title of the subscribe section.
+          - type: string
+            name: subscribe_content
+            label: Content
+            description: The text content of the subscribe section.
   social:
     type: data
     file: social.json
@@ -240,7 +250,7 @@ models:
   home:
     type: page
     label: Home
-    template: home
+    layout: home
     file: index.md
     hideContent: true
     singleInstance: true
@@ -252,19 +262,28 @@ models:
           The title of the page. If value is not set, the author name will be
           used.
         required: true
+      - type: string
+        name: excerpt
+        label: Excerpt
+        description: The excerpt of the page displayed in meta data.
+      - type: boolean
+        name: has_intro
+        label: Enable Intro Section
+        description: Display the intro section below the site header.
+        default: true
+      - type: markdown
+        name: intro_content
+        label: Intro Section Content
+        description: The text content of the intro section.
       - type: list
-        name: sections
-        label: Sections
-        description: Home page sections
+        name: intro_actions
+        label: Intro Action Buttons
         items:
-          type: reference
-          labelField: title
-          models:
-            - intro
+          type: action
   contact:
     type: page
     label: Contact
-    template: contact
+    layout: contact
     file: contact.md
     singleInstance: true
     fields:
@@ -277,14 +296,18 @@ models:
         name: subtitle
         label: Subtitle
         description: The text shown just below the page title.
+      - type: string
+        name: excerpt
+        label: Excerpt
+        description: The excerpt of the page displayed in meta data.
       - type: image
-        name: img_path
+        name: image
         label: Image
         description: The image shown below the page title and subtitle.
   page:
     type: page
     label: Page
-    template: page
+    layout: page
     exclude: posts/**
     fields:
       - type: string
@@ -296,14 +319,18 @@ models:
         name: subtitle
         label: Subtitle
         description: The text shown just below the page title.
+      - type: string
+        name: excerpt
+        label: Excerpt
+        description: The excerpt of the page displayed in meta data.
       - type: image
-        name: img_path
+        name: image
         label: Image
         description: The image shown below the page title and subtitle.
   post:
     type: page
     label: Post
-    template: post
+    layout: post
     folder: posts
     fields:
       - type: string
@@ -320,53 +347,17 @@ models:
         label: Date
         required: true
       - type: image
-        name: thumb_img_path
+        name: thumb_image
         label: Featured Image
         description: The image shown in the blog feed.
       - type: image
-        name: content_img_path
+        name: image
         label: Alternative Featured Image
         description: The image shown in the single post.
       - type: string
         name: excerpt
         label: Excerpt
         description: The excerpt of the post displayed in the blog feed.
-  subscribe:
-    type: data
-    file: subscribe.json
-    label: Subscribe
-    fields:
-      - type: boolean
-        name: enabled
-        label: Enable Subscribe Section
-        description: Display the newsletter subscription section in the footer.
-        default: true
-      - type: string
-        name: title
-        label: Title
-        description: The title of the subscribe section
-      - type: string
-        name: content
-        label: Content
-        description: The text content of the subscribe section
-  section:
-    type: object
-    label: Section
-    labelField: title
-    fields:
-      - type: string
-        name: title
-        label: Title
-        description: The title of the section
-        required: true
-      - type: string
-        name: section_id
-        label: Element ID
-      - type: string
-        name: component
-        label: Component
-        required: true
-        hidden: true
   action:
     type: object
     label: Action
@@ -376,28 +367,24 @@ models:
         name: label
         label: Label
         required: true
-        description: The text displayed inside the button
       - type: string
         name: url
-        label: Button URL
+        label: URL
+        required: true
         widget: url
-  intro:
-    type: object
-    label: Intro Section
-    extends:
-      - section
-    fields:
-      - name: component
-        default: intro.html
-      - type: markdown
-        name: content
-        label: Content
-        description: The text content of the section.
-      - type: list
-        name: actions
-        label: Action Buttons
-        items:
-          type: action
+      - type: enum
+        name: type
+        label: Type
+        options:
+          - link
+          - primary
+          - secondary
+        default: link
+        required: true
+      - type: boolean
+        name: new_window
+        label: Open in new tab/window
+        default: false
 stackbit_banner:
   show_banner: true
   name: Ampersand

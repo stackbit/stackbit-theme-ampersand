@@ -6,7 +6,7 @@
 
     {% include "header.html" %}
 
-    <div id="content" class="site-content">
+    <div id="content" class="site-content outer">
       <main id="main" class="site-main inner">
 
         {% block content %}{% endblock %}
@@ -14,7 +14,7 @@
       </main><!-- .site-main -->
     </div><!-- .site-content -->
 
-    {% if site.data.subscribe.enabled %}
+    {% if site.params.footer.has_subscribe %}
       {% include "subscribe.html" %}
     {% endif %}
 
