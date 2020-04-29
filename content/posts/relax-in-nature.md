@@ -4,8 +4,8 @@ subtitle: The way I spend time out in nature can affect how much my physical and
 excerpt: >-
   The way I spend time out in nature can affect how much my physical and mental health will recharge and how I benefit from it.
 date: 2019-03-24
-thumb_image: images/4.jpg
-image: images/4.jpg
+thumb_img_path: images/4.jpg
+content_img_path: images/4.jpg
 layout: post
 ---
 

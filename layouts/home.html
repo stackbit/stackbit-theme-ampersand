@@ -26,9 +26,9 @@
     {% for post in display_posts %}
     <article class="post post-card">
       <div class="post-card-inside">
-        {% if post.params.thumb_image %}
+        {% if post.params.thumb_img_path %}
         <a class="post-card-thumbnail" href="{{ post.url | relative_url }}">
-          <img class="thumbnail" src="{{ post.params.thumb_image | relative_url }}" alt="{{ post.params.title }}" />
+          <img class="thumbnail" src="{{ post.params.thumb_img_path | relative_url }}" alt="{{ post.params.title }}" />
         </a>
         {% endif %}
         <div class="post-card-content">

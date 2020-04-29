@@ -15,9 +15,9 @@
       </div><!-- .post-subtitle -->
       {% endif %}
     </header><!-- .post-header -->
-    {% if page.params.image %}
+    {% if page.params.content_img_path %}
     <div class="post-thumbnail">
-      <img class="thumbnail" src="{{ page.params.image | relative_url }}" alt="{{ page.params.title }}" />
+      <img class="thumbnail" src="{{ page.params.content_img_path | relative_url }}" alt="{{ page.params.title }}" />
     </div>
     {% endif %}
     <div class="post-content inner-md">
