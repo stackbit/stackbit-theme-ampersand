@@ -16,7 +16,7 @@
         {% endif %}
       </div><!-- .site-branding -->
 
-      {% if site.params.header.nav_links and site.params.header.has_nav %}
+      {% if site.params.header.has_nav %}
       <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Menu</span><span class="icon-menu"
         aria-hidden="true"></span></button>
       <nav id="main-navigation" class="site-nav" aria-label="Main Navigation">
@@ -24,9 +24,10 @@
           <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Menu</span><span class="icon-close"
               aria-hidden="true"></span></button>
           <ul class="menu">
-            {% for item in site.params.header.nav_links %}
-            <li {{ classNames('menu-item', {'current-menu-item': page.url == item.url, 'menu-button': item.type != 'link' }) }}>
-              <a {{ classNames({'button': item.type != 'link', 'button-secondary': item.type == 'secondary' }) }} href="{{ item.url | relative_url }}" {% if item.new_window %}target="_blank" rel="noopener"{% endif %}>{{ item.label }}</a>
+            {% for action in site.params.header.nav_links %}
+            <li {{ classNames('menu-item', {'current-menu-item': page.url == action.url, 'menu-button': action.type != 'link' }) }}>
+              {% set include_dict = {'action': action} %}
+              {% include "action_link.html" %}
             </li>
             {% endfor %}
           </ul><!-- .menu -->

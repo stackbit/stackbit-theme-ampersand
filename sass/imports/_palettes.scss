@@ -160,6 +160,21 @@
   }
 }
 
+.palette-black,
+.palette-blue,
+.palette-red {
+  .button-icon {
+    background: 0;
+    color: inherit;
+  
+    &:hover,
+    &:focus,
+    &:active {
+      color: _palette(meta);
+    }
+  }
+}
+
 @media only screen and (min-width: 681px) {
   .layout-grid,
   .layout-list {

@@ -13,7 +13,7 @@
       {% if page.params.intro_actions %}
       <div class="intro-cta">
         {% for action in page.params.intro_actions %}
-        <a href="{{ action.url | relative_url }}" {{ classNames({'button': action.type != 'link', 'button-secondary': action.type == 'secondary' }) }} {% if action.new_window %}target="_blank" rel="noopener"{% endif %}>{{ action.label }}</a>
+        <a href="{{ action.url | relative_url }}" {{ classNames({'button': action.type == 'primary' or action.type == 'secondary', 'button-secondary': action.type == 'secondary' }) }} {% if action.new_window %}target="_blank" rel="noopener"{% endif %}>{{ action.label }}</a>
         {% endfor %}
       </div>
       {% endif %}

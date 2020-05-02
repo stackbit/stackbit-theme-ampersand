@@ -57,16 +57,18 @@
     color: _palette(meta);
   }
 
-  :not(.button) {
-    border: 0;
-    color: inherit;
-    font-size: 14px;
-    line-height: 1.5;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+  a {
+    &:not(.button) {
+      border: 0;
+      color: inherit;
+      font-size: 14px;
+      line-height: 1.5;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
 
-    &:hover {
-      color: _palette(meta);
+      &:hover {
+        color: _palette(meta);
+      }
     }
   }
 }
@@ -92,13 +94,9 @@
   .menu-item {
     margin-left: 20px;
 
-    .button {
+    .button:not(.button-icon) {
       padding: 0.4em 10px;
     }
-  }
-
-  .menu-button + .menu-button {
-    margin-left: 10px;
   }
 }
 
@@ -172,7 +170,9 @@
     }
 
     a {
-      display: block;
+      &:not(.button-icon) {
+        display: block;
+      }
 
       &:not(.button) {
         padding: 1em 0;

@@ -7,7 +7,8 @@
   padding-top: 2.5em;
 }
 
-.site-info {
+.site-info,
+.social-links {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -21,64 +22,51 @@
   justify-content: center;
   margin-bottom: 1.33333em;
 
-  .copyright,
   a {
-    font-size: 12px;
-    letter-spacing: 0.075em;
-    line-height: 1.2;
-    margin-bottom: 0.5em;
-    margin-right: 8px;
-    text-transform: uppercase;
-  }
+    &.button:not(.button-icon) {
+      padding: 0.33333em 8px;
+    }
 
-  a {
-    &:not(.button) {
-      border-bottom-width: 1px;
+    &:not(.button-icon) {
+      font-size: 12px;
+      letter-spacing: 0.075em;
+      line-height: 1.2;
+      text-transform: uppercase;
     }
   }
+}
 
-  .button {
-    padding: 0.33333em 8px;
+.site-info {
+  margin-top: 0.25em;
+
+  .copyright,
+  a {
+    margin: 0 8px 6px 0;
+
+    &:not(.button-icon) {
+      font-size: 12px;
+      letter-spacing: 0.075em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
   }
 }
 
 .social-links {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  margin-bottom: 0.83333em;
-
   a {
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    border: 0;
-    color: inherit;
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    font-size: 18px;
-    height: 1.66667em;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    line-height: 1.66667em;
-    margin: 0 5% 0.66667em 0;
-    width: 1.66667em;
+    margin: 0 5% 6px 0;
+  }
 
-    &:hover {
-      color: _palette(meta);
-    }
+  .icon {
+    font-size: 18px;
   }
 }
 
 @media only screen and (min-width: 601px) {
   .site-footer-inside {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -100,7 +88,7 @@
     margin-left: auto;
 
     a {
-      margin-left: 15px;
+      margin-left: 30px;
       margin-right: 0;
     }
   }

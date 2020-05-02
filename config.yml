@@ -25,11 +25,37 @@ params:
   footer:
     content: "&copy; All rights reserved."
     links:
-      - label: Made with Stackbit.
+      - label: Made with Stackbit
         url: https://www.stackbit.com
         type: link
         new_window: true
     has_social: true
+    social_links:
+      - label: Twitter
+        url: https://twitter.com/
+        type: icon
+        icon_class: fa-twitter
+        new_window: true
+      - label: Instagram
+        url: https://www.instagram.com/
+        type: icon
+        icon_class: fa-instagram
+        new_window: true
+      - label: GitHub
+        url: https://github.com/
+        type: icon
+        icon_class: fa-github
+        new_window: true
+      - label: LinkedIn
+        url: https://www.linkedin.com/
+        type: icon
+        icon_class: fa-linkedin
+        new_window: true
+      - label: DEV
+        url: https://dev.to/
+        type: icon
+        icon_class: fa-dev
+        new_window: true
     has_subscribe: true
     subscribe_title: Subscribe for new updates
     subscribe_content: Subscribe to my email newsletter to receive useful articles and special offers. This monthly email is sent out on the first of every month.
