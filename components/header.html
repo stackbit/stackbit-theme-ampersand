@@ -25,7 +25,7 @@
               aria-hidden="true"></span></button>
           <ul class="menu">
             {% for action in site.params.header.nav_links %}
-            <li {{ classNames('menu-item', {'current-menu-item': page.url == action.url, 'menu-button': action.type != 'link' }) }}>
+            <li {{ classNames('menu-item', {'current-menu-item': page.url == action.url, 'menu-button': action.style != 'link' }) }}>
               {% set include_dict = {'action': action} %}
               {% include "action_link.html" %}
             </li>

@@ -6,9 +6,9 @@ intro_content: >-
 intro_actions:
   - label: Learn More
     url: "/about"
-    type: primary
+    style: primary
   - label: Contact
     url: "/contact"
-    type: secondary
+    style: secondary
 layout: home
 ---
