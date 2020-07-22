@@ -25,10 +25,12 @@
               aria-hidden="true"></span></button>
           <ul class="menu">
             {% for action in site.params.header.nav_links %}
-            <li {{ classNames('menu-item', {'current-menu-item': page.url == action.url, 'menu-button': action.style != 'link' }) }}>
-              {% set include_dict = {'action': action} %}
-              {% include "action_link.html" %}
-            </li>
+              {% set pageUrl = page.url | trim('/') %}
+              {% set actionUrl = action.url | trim('/') %}
+              <li {{ classNames('menu-item', {'current-menu-item': pageUrl == actionUrl, 'menu-button': action.style != 'link' }) }}>
+                {% set include_dict = {'action': action} %}
+                {% include "action_link.html" %}
+              </li>
             {% endfor %}
           </ul><!-- .menu -->
         </div><!-- .site-nav-inside -->
