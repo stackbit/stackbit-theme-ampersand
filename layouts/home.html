@@ -43,9 +43,11 @@
             {% if post.params.excerpt %}
             <p>{{ post.params.excerpt }}</p>
             {% endif %}
+            {% if page.params.has_more_link == true and page.params.more_link_text %}
             <p class="read-more">
-              <a class="button button-secondary" href="{{ post.url | relative_url }}">Read more</a>
+              <a class="button button-secondary" href="{{ post.url | relative_url }}">{{ page.params.more_link_text }}</a>
             </p>
+            {% endif %}
           </div><!-- .post-excerpt -->
         </div><!-- .post-card-content -->
       </div><!-- .post-card-inside -->

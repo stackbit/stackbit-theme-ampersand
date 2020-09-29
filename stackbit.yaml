@@ -257,6 +257,14 @@ models:
         items:
           type: model
           models: [action]
+      - type: boolean
+        name: has_more_link
+        label: Show read more link
+        description: Display the read more link in the post feed
+        default: true
+      - type: string
+        name: more_link_text
+        label: Read more link label
   contact:
     type: page
     label: Contact

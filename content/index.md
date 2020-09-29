@@ -10,5 +10,7 @@ intro_actions:
   - label: Contact
     url: "/contact"
     style: secondary
+has_more_link: true
+more_link_text: Read more
 layout: home
 ---
