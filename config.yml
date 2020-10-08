@@ -14,13 +14,13 @@ params:
         url: /
         style: link
       - label: About
-        url: /about/
+        url: /about
         style: link
       - label: Style Guide
-        url: /style-guide/
+        url: /style-guide
         style: link
       - label: Contact
-        url: /contact/
+        url: /contact
         style: link
   footer:
     content: "&copy; All rights reserved."
@@ -59,6 +59,7 @@ params:
     has_subscribe: true
     subscribe_title: Subscribe for new updates
     subscribe_content: Subscribe to my email newsletter to receive useful articles and special offers. This monthly email is sent out on the first of every month.
+    subscribe_action: /subscribe-success
 sass:
   input_file: sass/main.scss.njk
   output_file: assets/css/main.css
