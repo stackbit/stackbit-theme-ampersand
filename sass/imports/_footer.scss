@@ -30,7 +30,7 @@
     &:not(.button-icon) {
       font-size: 12px;
       letter-spacing: 0.075em;
-      line-height: 1.2;
+      line-height: 1.5;
       text-transform: uppercase;
     }
   }
@@ -39,16 +39,17 @@
 .site-info {
   margin-top: 0.25em;
 
-  .copyright,
-  a {
-    margin: 0 8px 6px 0;
+  .copyright {
+    font-size: 12px;
+    letter-spacing: 0.075em;
+    line-height: 1.5;
+    margin-bottom: 1em;
+    text-align: center;
+    text-transform: uppercase;
+  }
 
-    &:not(.button-icon) {
-      font-size: 12px;
-      letter-spacing: 0.075em;
-      line-height: 1.2;
-      text-transform: uppercase;
-    }
+  > a {
+    margin: 0 4px 6px;
   }
 }
 
@@ -77,6 +78,17 @@
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     justify-content: flex-start;
+  }
+
+  .site-info {
+    .copyright {
+      text-align: left;
+    }
+
+    .copyright,
+    > a {
+      margin: 0 8px 6px 0;
+    }
   }
 
   .social-links {
