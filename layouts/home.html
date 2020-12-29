@@ -13,7 +13,15 @@
       {% if page.params.intro_actions %}
       <div class="intro-cta">
         {% for action in page.params.intro_actions %}
-        <a href="{{ action.url | relative_url }}" {{ classNames({'button': action.style == 'primary' or action.style == 'secondary', 'button-secondary': action.style == 'secondary' }) }} {% if action.new_window %}target="_blank" rel="noopener"{% endif %}>{{ action.label }}</a>
+        <a href="{{ action.url | relative_url }}"
+          {% if action.new_window %} target="_blank"{% endif %}
+          {% if action.new_window or action.no_follow %} rel="{% if action.new_window %}noopener {% endif %}{% if action.no_follow %}nofollow{% endif %}"{% endif %}
+          {{ classNames({
+            'button': action.style == 'primary' or action.style == 'secondary',
+            'button-secondary': action.style == 'secondary'
+          }) }}>
+          {{ action.label }}
+        </a>
         {% endfor %}
       </div>
       {% endif %}
@@ -28,7 +36,7 @@
       <div class="post-card-inside">
         {% if post.params.thumb_img_path %}
         <a class="post-card-thumbnail" href="{{ post.url | relative_url }}">
-          <img class="thumbnail" src="{{ post.params.thumb_img_path | relative_url }}" alt="{{ post.params.title }}" />
+          <img class="thumbnail" src="{{ post.params.thumb_img_path | relative_url }}" alt="{{ post.params.thumb_img_alt }}" />
         </a>
         {% endif %}
         <div class="post-card-content">

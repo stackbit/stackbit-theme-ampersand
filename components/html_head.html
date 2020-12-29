@@ -9,3 +9,6 @@
 <link rel="canonical" href="{{ page.params.canonical_url }}"/>
 {% endif %}
 {% endif %}
+{% if site.params.favicon %}
+<link rel="icon" href="{{ site.params.favicon | relative_url }}">
+{% endif %}
