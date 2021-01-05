@@ -25,7 +25,7 @@ params:
         style: link
   footer:
     content: >-
-      &copy; Stackbit. All rights reserved. This Jamstack site was created with <a href="https://www.stackbit.com" target="_blank" rel="noopener">Stackbit</a>.
+      &copy; Stackbit. All rights reserved. This Jamstack site was created with <a href="https://www.stackbit.com/?utm_source=deployed-footer" target="_blank" rel="noopener">Stackbit</a>. Create yours <a href="https://app.stackbit.com/create?theme=ampersand&utm_source=deployed-footer" target="_blank" rel="noopener">now</a>.
     has_social: true
     social_links:
       - label: Twitter
