@@ -31,6 +31,25 @@ form_fields:
     name: consent
     label: I understand that this form is storing my submitted information so I can be contacted.
 submit_label: Send Message
+seo:
+  title: Get in Touch
+  description: This is the contact page
+  extra:
+    - name: og:type
+      value: website
+      keyName: property
+    - name: og:title
+      value: Get in Touch
+      keyName: property
+    - name: og:description
+      value: This is the contact page
+      keyName: property
+    - name: twitter:card
+      value: summary
+    - name: twitter:title
+      value: Get in Touch
+    - name: twitter:description
+      value: This is the contact page
 layout: contact
 ---
 

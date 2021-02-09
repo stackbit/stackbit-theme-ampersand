@@ -1,0 +1,2 @@
+window.removeMainNavigationHandlers();
+window.removeVideoEmbedsHandlers();
