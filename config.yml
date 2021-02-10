@@ -1,8 +1,9 @@
 baseurl: "/"
 title: "Stackbit Ampersand Theme"
-page_load_js: "assets/js/main.js"
+init_js: "js/init.js"
+page_load_js: "js/page-load.js"
+page_unload_js: "js/page-unload.js"
 params:
-  description: Medium inspired blogging theme for Stackbit
   layout_style: grid
   palette: green
   header:
@@ -31,35 +32,35 @@ params:
       - label: Twitter
         url: https://twitter.com/
         style: icon
-        icon_class: fa-twitter
+        icon_class: twitter
         new_window: true
       - label: Instagram
         url: https://www.instagram.com/
         style: icon
-        icon_class: fa-instagram
+        icon_class: instagram
         new_window: true
       - label: GitHub
         url: https://github.com/
         style: icon
-        icon_class: fa-github
+        icon_class: github
         new_window: true
       - label: LinkedIn
         url: https://www.linkedin.com/
         style: icon
-        icon_class: fa-linkedin
+        icon_class: linkedin
         new_window: true
       - label: DEV
         url: https://dev.to/
         style: icon
-        icon_class: fa-dev
+        icon_class: dev
         new_window: true
     has_subscribe: true
     subscribe_title: Subscribe for new updates
     subscribe_content: Subscribe to my email newsletter to receive useful articles and special offers. This monthly email is sent out on the first of every month.
     subscribe_action: /subscribe-success
 sass:
-  input_file: sass/main.scss.njk
-  output_file: assets/css/main.css
+  input_file: sass/main.scss
+  output_file: css/main.css
   indentWidth: 4
   outputStyle: nested
   precision: 10

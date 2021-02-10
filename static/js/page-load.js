@@ -1,0 +1,2 @@
+window.addMainNavigationHandlers();
+window.addVideoEmbedsHandlers();
