@@ -1,0 +1,220 @@
+/**
+ * Posts and Pages
+ */
+.post {
+    margin-bottom: 3.33333em;
+}
+
+.post-header {
+    margin-bottom: 2.5em;
+}
+
+.post-meta {
+    color: _palette(meta);
+    font-size: 0.88889em;
+    letter-spacing: 0.07em;
+    line-height: 1.5;
+    margin-bottom: 0.83333rem;
+    text-transform: uppercase;
+}
+
+.post-title {
+    font-size: 2.66667em;
+    margin: 0 0 1.66667rem;
+
+    a {
+        border: 0;
+        color: inherit;
+
+        &:hover {
+            color: _palette(primary);
+        }
+    }
+}
+
+.post-subtitle {
+    font-size: 1.33333em;
+    line-height: 1.5;
+}
+
+.post-thumbnail {
+    display: block;
+    margin-bottom: 2.5rem;
+
+    img {
+        width: 100%;
+    }
+}
+
+/* Post feed */
+.post-feed,
+.post-card {
+    margin-bottom: 3.5vw;
+}
+
+.post-card {
+    .post-header {
+        margin-bottom: 0.83333em;
+    }
+
+    .post-meta {
+        font-size: 14px;
+    }
+
+    .post-title {
+        font-size: 1.66667em;
+        margin-bottom: 0.83333rem;
+    }
+
+    .post-excerpt {
+        font-size: 16px;
+    }
+}
+
+.post-card-inside {
+    border: 1px solid _palette(border);
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 2px 0px;
+}
+
+.post-card-thumbnail {
+    border: 0;
+    border-radius: 3px 3px 0 0;
+    display: block;
+    margin: 0;
+
+    img {
+        border-radius: 3px 3px 0 0;
+        width: 100%;
+    }
+}
+
+.post-card-content {
+    padding: 1.33333em 3.5vw 0.33333em;
+}
+
+.read-more {
+    margin-top: 1.33333rem;
+}
+
+@media only screen and (min-width: 681px) {
+    .layout-grid {
+        .post-feed {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            margin-left: -1.75vw;
+            margin-right: -1.75vw;
+        }
+
+        .post-card {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            width: 50%;
+        }
+
+        .post-card-inside {
+            -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+            margin-left: 1.75vw;
+            margin-right: 1.75vw;
+            overflow: hidden;
+        }
+
+        .post-card-content {
+            &:only-child {
+                border-top: 50px solid rgba(_palette(accent), 0.1);
+            }
+        }
+    }
+
+    .layout-list {
+        .post-card-inside {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: reverse;
+            -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+        }
+
+        .post-card-thumbnail {
+            border-radius: 0 3px 3px 0;
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 40%;
+            flex: 0 0 40%;
+            width: 40%;
+
+            img {
+                border-radius: 0 3px 3px 0;
+                height: 100%;
+                -o-object-fit: cover;
+                object-fit: cover;
+                width: 100%;
+            }
+        }
+
+        .post-card-content {
+            -webkit-box-flex: 1;
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+
+            &:only-child {
+                border-right: 165px solid rgba(_palette(accent), 0.1);
+                padding-right: 7%;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 860px) {
+    .post-feed,
+    .post-card {
+        margin-bottom: 1.66667em;
+    }
+
+    .post-card-content {
+        padding-left: 1.66667em;
+        padding-right: 1.66667em;
+    }
+
+    .layout-grid {
+        .post-feed {
+            margin-left: -0.83333em;
+            margin-right: -0.83333em;
+        }
+
+        .post-card-inside {
+            margin-left: 0.833333em;
+            margin-right: 0.833333em;
+        }
+    }
+
+    .layout-list {
+        .post-card {
+            margin-bottom: 2.22222em;
+        }
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .post-title {
+        font-size: 2.22222em;
+    }
+
+    .post-subtitle {
+        font-size: 1.22222em;
+    }
+}

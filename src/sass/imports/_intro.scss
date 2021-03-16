@@ -1,0 +1,50 @@
+/**
+ * Intro Section
+ */
+.intro {
+    margin-bottom: 2.5em;
+}
+
+.intro-text {
+    color: _palette(secondary);
+    font-family: _font(secondary);
+    font-size: 1.22222em;
+    line-height: 1.5;
+    margin-bottom: 1.66667rem;
+}
+
+.intro-cta {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+
+    a {
+        font-size: 14px;
+        letter-spacing: 0.075em;
+        line-height: 1.2;
+        margin-bottom: 1em;
+        margin-right: 15px;
+        text-transform: uppercase;
+    }
+}
+
+@media (min-width: 801px) {
+    .intro {
+        margin-bottom: 3.33333em;
+    }
+
+    .intro-text {
+        font-size: 1.33333em;
+    }
+
+    .intro-cta {
+        a {
+            font-size: 0.88889em;
+        }
+    }
+}

@@ -1,0 +1,199 @@
+/**
+ * Palettes
+ */
+.palette-black {
+    a {
+        border-bottom-color: _palette(accent-black);
+
+        &:hover {
+            border-color: currentColor;
+        }
+    }
+
+    blockquote {
+        border-top-color: _palette(accent-black);
+
+        &:before {
+            color: _palette(accent-black);
+        }
+    }
+
+    button,
+    input[type='submit'],
+    input[type='button'],
+    input[type='reset'],
+    .button {
+        background: _palette(accent-black);
+        border-color: _palette(accent-black);
+        color: #fff;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background: 0;
+            border-color: _palette(accent-black);
+            color: _palette(accent-black);
+        }
+    }
+
+    .button-secondary {
+        background: 0;
+        color: _palette(accent-black);
+
+        &:hover,
+        &:focus,
+        &:active {
+            background: _palette(accent-black);
+            border-color: _palette(accent-black);
+            color: #fff;
+        }
+    }
+
+    .site-header {
+        border-top-color: _palette(accent-black);
+    }
+}
+
+.palette-blue {
+    a {
+        border-bottom-color: _palette(accent-blue);
+
+        &:hover {
+            border-color: currentColor;
+        }
+    }
+
+    blockquote {
+        border-top-color: _palette(accent-blue);
+
+        &:before {
+            color: _palette(accent-blue);
+        }
+    }
+
+    button,
+    input[type='submit'],
+    input[type='button'],
+    input[type='reset'],
+    .button {
+        background: _palette(accent-blue);
+        border-color: _palette(accent-blue);
+        color: #fff;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background: 0;
+            border-color: _palette(accent-blue);
+            color: _palette(accent-blue);
+        }
+    }
+
+    .button-secondary {
+        background: 0;
+        color: _palette(accent-blue);
+
+        &:hover,
+        &:focus,
+        &:active {
+            background: _palette(accent-blue);
+            border-color: _palette(accent-blue);
+            color: #fff;
+        }
+    }
+
+    .site-header {
+        border-top-color: _palette(accent-blue);
+    }
+}
+
+.palette-red {
+    a {
+        border-bottom-color: _palette(accent-red);
+
+        &:hover {
+            border-color: currentColor;
+        }
+    }
+
+    blockquote {
+        border-top-color: _palette(accent-red);
+
+        &:before {
+            color: _palette(accent-red);
+        }
+    }
+
+    button,
+    input[type='submit'],
+    input[type='button'],
+    input[type='reset'],
+    .button {
+        background: _palette(accent-red);
+        border-color: _palette(accent-red);
+        color: #fff;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background: 0;
+            border-color: _palette(accent-red);
+            color: _palette(accent-red);
+        }
+    }
+
+    .button-secondary {
+        background: 0;
+        color: _palette(accent-red);
+
+        &:hover,
+        &:focus,
+        &:active {
+            background: _palette(accent-red);
+            border-color: _palette(accent-red);
+            color: #fff;
+        }
+    }
+
+    .site-header {
+        border-top-color: _palette(accent-red);
+    }
+}
+
+.palette-black,
+.palette-blue,
+.palette-red {
+    .button-icon {
+        background: 0;
+        color: inherit;
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: _palette(meta);
+        }
+    }
+}
+
+@media only screen and (min-width: 681px) {
+    .layout-grid,
+    .layout-list {
+        &.palette-black {
+            .post-card-content:only-child {
+                border-color: rgba(_palette(accent-black), 0.1);
+            }
+        }
+
+        &.palette-blue {
+            .post-card-content:only-child {
+                border-color: rgba(_palette(accent-blue), 0.1);
+            }
+        }
+
+        &.palette-red {
+            .post-card-content:only-child {
+                border-color: rgba(_palette(accent-red), 0.1);
+            }
+        }
+    }
+}
