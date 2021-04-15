@@ -436,8 +436,18 @@ video {
     max-width: 100%;
 }
 
-.js-reframe {
-    margin: 0 0 1.66667em;
+.post-content,
+.intro {
+  iframe[src*="vimeo.com"],
+  iframe[src*="youtube.com"] {
+    display: block;
+    margin-bottom: 1.66667em;
+    margin-top: 1.66667em;
+
+    &:first-child {
+        margin-top: 0;
+    }
+  }
 }
 
 /* Images */

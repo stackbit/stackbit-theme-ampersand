@@ -8,6 +8,24 @@ import Subscribe from './Subscribe';
 import Footer from './Footer';
 
 export default class Body extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleVideoEmbeds = this.handleVideoEmbeds.bind(this);
+    }
+
+    componentDidMount() {
+        this.handleVideoEmbeds();
+    }
+
+    componentDidUpdate() {
+        this.handleVideoEmbeds();
+    }
+
+    handleVideoEmbeds() {
+        const videoEmbeds = ['iframe[src*="youtube.com"]', 'iframe[src*="vimeo.com"]'];
+        noframe(videoEmbeds.join(','), '.inner-md');
+    }
+
     render() {
         const page = _.get(this.props, 'page');
         const pageTitle = _.get(page, 'title');
